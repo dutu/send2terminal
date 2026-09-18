@@ -3,8 +3,8 @@ plugins {
     alias(libs.plugins.intellijPlatform)
 }
 
-group = "io.github.holgerbrandl"
-version = "1.8.0-dev"
+group = "io.github.dutu"
+version = "2.0.0"
 
 repositories {
     mavenCentral()

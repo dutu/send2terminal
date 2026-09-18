@@ -1,11 +1,11 @@
 <idea-plugin>
-    <id>send2terminal</id>
+    <id>io.github.dutu.send2terminal</id>
     <name>Send To Terminal</name>
-    <version>1.8.0</version>
-    <vendor email="" url="https://github.com/holgerbrandl/send2terminal">Holger Brandl</vendor>
+    <version>2.0.0</version>
+    <vendor url="https://github.com/dutu/send2terminal">dutu</vendor>
 
     <description><![CDATA[
-        IntelliJ plugin to send the current line or selection to the IDE terminal.
+        Send the current line or editor selection directly to the active IDE terminal.
     ]]></description>
 
     <change-notes><![CDATA[
@@ -18,7 +18,7 @@
     <depends>org.jetbrains.plugins.terminal</depends>
 
     <actions>
-        <action id="EvalSelection"
+        <action id="io.github.dutu.send2terminal.EvalSelection"
                 class="io.github.holgerbrandl.send2terminal.actions.EvaluateLineOrSelectionAction"
                 text="Evaluate Line/Selection in Terminal"
                 description="Evaluate the current line or selection in the terminal">

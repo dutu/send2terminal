@@ -1,69 +1,98 @@
-Send To Terminal
-================
-
+# Send To Terminal
 
 <!-- Plugin description -->
-Intellij plugin to send line or selection to a terminal
+JetBrains IDE plugin to send the current editor line or selection directly to the active IDE terminal and execute it.
 <!-- Plugin description end -->
 
-The following modes are supported
+This fork uses the native JetBrains Terminal API instead of platform-specific terminal automation.
 
-* Send current line or selection (default shortcut `meta alt ENTER`)
-* Send current and move focus to next line with expression (default shortcut `meta alt shift ENTER`)
+## Usage
 
-Supported evaluation targets are
+The plugin provides one action:
 
-* [Cmdr](http://cmder.net/) via [conemu](https://conemu.github.io/) (Windows)
-* [R GUI](https://www.r-project.org/) (Windows)
-*   Terminal (MacOS)
-*   [iTerm2](https://www.iterm2.com/) (MacOS)
+**Evaluate Line/Selection in Terminal**
 
+- If text is selected, the selected text is sent to the active IDE terminal.
+- If there is no selection, the current line is sent.
+- The command is executed immediately.
+- Editor focus remains in the editor.
+- An existing selection is cleared after the command is sent.
 
+No default keyboard shortcut is assigned.
 
-##  Kotlin Support
+A convenient binding is `F10`:
 
-The plugin comes with special support for Kotlin, namely
+`Settings → Keymap → Evaluate Line/Selection in Terminal`
 
-1. Paste Mode Support:
+## Terminal support
 
-With the stock Kotlin-REPL, one can not evaluate certain multi-line expressions such as
-```kotlin
-listOf("foo", "bar")
-    .map{it+"2"}
+The plugin sends commands directly to the terminal embedded in the IDE.
+
+It supports both the current reworked JetBrains terminal and the classic terminal implementation.
+
+No external terminal application, clipboard automation, or desktop automation is required.
+
+This makes it suitable for Linux/Wayland environments as well as other platforms supported by JetBrains IDEs.
+
+## Compatibility
+
+Currently developed and tested with WebStorm based on IntelliJ Platform build `263`.
+
+The plugin requires the JetBrains Terminal plugin.
+
+Other JetBrains IDEs based on the same platform may also work but have not been specifically tested.
+
+## Build
+
+Clone the repository:
+
+```bash
+git clone https://github.com/dutu/send2terminal.git
+cd send2terminal
 ```
 
-Please vote for [KT-13319](https://youtrack.jetbrains.net/issue/KT-13319) to push for a REPL paste-mode. Alternatively you could use `kshell` from https://github.com/khud/sparklin and enable the paste mode support in the preferences of this plugin.
+Build using the JBR bundled with WebStorm:
 
-2. Automatic Import Detection
+```bash
+JAVA_HOME="$HOME/.local/opt/WebStorm/jbr" ./gradlew clean build
+```
 
-The plugin will detect imports in a kotlin document and will evaluate imports in the target terminal prior to the user selection/expression.
+Build an installable plugin ZIP:
 
+```bash
+JAVA_HOME="$HOME/.local/opt/WebStorm/jbr" ./gradlew buildPlugin
+```
 
-3. Expression Guessing
+The resulting package is created under:
 
-The plugin will guess the scope of the expression under the cursor when using the shortcut `ctr+alt+shift+enter`. The scope barriers are named fuctions or the file itself.
+```text
+build/distributions/
+```
 
+Install it using:
 
-## Custom shortcut actions
+`Settings → Plugins → Install Plugin from Disk…`
 
-Up to 4 custom actions can be defined to send the current selection/line to the evaluation target. Below some examples are shown for `R`
-![](docs/.README_images/r_settings_example.png)
+## Development
 
-Those shortcut actions are exposed via the context menu and can be assigned to custom keyboard bindings:
-![](docs/.README_images/contect_menu.png)
+Run a sandboxed WebStorm instance with the plugin installed:
 
+```bash
+JAVA_HOME="$HOME/.local/opt/WebStorm/jbr" ./gradlew runIde
+```
 
+## History
 
-## How to build?
+This repository is a fork of the original
+[holgerbrandl/send2terminal](https://github.com/holgerbrandl/send2terminal)
+plugin.
 
-Clone from `https://github.com/holgerbrandl/send2terminal`, open project in Intellij, Import from Gradle, and click "Run".
+The original implementation supported several platform-specific external
+terminal integrations and additional Kotlin-specific functionality.
 
+Version 2.x simplifies the plugin around direct integration with the
+JetBrains IDE terminal.
 
-## Support & Development
+## License
 
-Feel welcome to suggest features or improvments by submitting an [issue](https://github.com/holgerbrandl/send2terminal/issues)
-
-
-## References
-
-* [Official Plugin Page ](https://plugins.jetbrains.com/idea/plugin/9409-send-to-terminal) in Jetbrains` Plugin Repository
+BSD license. See [LICENSE](LICENSE).

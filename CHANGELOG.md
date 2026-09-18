@@ -1,5 +1,23 @@
 # Changes
 
+## [2.0.0]
+
+### Changed
+
+* Reworked command execution to use the native JetBrains Terminal API.
+* Send the current line or editor selection directly to the active IDE terminal.
+* Commands are executed without moving focus away from the editor.
+* Added native support for Linux/Wayland without clipboard or desktop automation.
+* Added support for both reworked and classic JetBrains terminal implementations.
+* Modernized the build for current IntelliJ Platform releases.
+* Updated the minimum supported platform build to 263.
+
+### Removed
+
+* Removed legacy Windows and macOS external-terminal connectors.
+* Removed the legacy settings UI and configurable evaluation actions.
+* Removed Kotlin-specific import handling and expression evaluation.
+ 
 ## [1.7.0]
 
 * Fixed compatibility with Intellij v2022.3
