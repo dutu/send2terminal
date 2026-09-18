@@ -10,43 +10,76 @@ package io.github.holgerbrandl.send2terminal.actions;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.PlatformDataKeys;
+import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
-import com.intellij.openapi.fileTypes.FileType;
-import com.intellij.openapi.util.text.StringUtil;
-import com.intellij.openapi.vfs.VirtualFile;
-import io.github.holgerbrandl.send2terminal.connectors.ConnectorUtils;
-
+import com.intellij.openapi.project.Project;
+import com.intellij.openapi.util.TextRange;
+import com.intellij.openapi.wm.ToolWindow;
+import com.intellij.openapi.wm.ToolWindowManager;
+import com.intellij.terminal.frontend.toolwindow.TerminalToolWindowTab;
+import com.intellij.terminal.ui.TerminalWidget;
+import com.intellij.ui.content.Content;
+import org.jetbrains.plugins.terminal.TerminalToolWindowFactory;
+import org.jetbrains.plugins.terminal.TerminalToolWindowManager;
 
 /**
- * Event handler for the "Run Selection" action within an Arc code editor - runs the currently selected text within the
- * current REPL.
+ * Sends the current selection, or the current line when there is no selection,
+ * to the active IDE terminal.
  */
 public class EvaluateLineOrSelectionAction extends AnAction {
 
-
+    @Override
     public void actionPerformed(AnActionEvent actionEvent) {
-        Editor ed = actionEvent.getData(PlatformDataKeys.EDITOR);
-        if (ed == null) {
+        Project project = actionEvent.getProject();
+        Editor editor = actionEvent.getData(PlatformDataKeys.EDITOR);
+
+        if (project == null || editor == null) {
             return;
         }
 
-        VirtualFile virtualFile = actionEvent.getData(PlatformDataKeys.VIRTUAL_FILE);
+        String text = editor.getSelectionModel().getSelectedText();
 
-        if(virtualFile==null) return;
+        if (text == null || text.isBlank()) {
+            Document document = editor.getDocument();
+            int line = editor.getCaretModel().getLogicalPosition().line;
+            int start = document.getLineStartOffset(line);
+            int end = document.getLineEndOffset(line);
 
-        FileType fileType = virtualFile.getFileType();
-
-        KotlinImportUtil.autoSendImports(ed, virtualFile);
-
-
-        String text = ed.getSelectionModel().getSelectedText();
-        if (StringUtil.isEmptyOrSpaces(text)) {
-            ed.getSelectionModel().selectLineAtCaret();
-            text = ed.getSelectionModel().getSelectedText();
+            text = document.getText(new TextRange(start, end));
         }
 
-        ConnectorUtils.sendText(text, fileType);
+        ToolWindow terminalToolWindow = ToolWindowManager.getInstance(project)
+                .getToolWindow(TerminalToolWindowFactory.TOOL_WINDOW_ID);
+
+        if (terminalToolWindow == null) {
+            return;
+        }
+
+        Content content = terminalToolWindow.getContentManager().getSelectedContent();
+
+        if (content == null) {
+            return;
+        }
+
+        TerminalToolWindowTab terminalTab =
+                content.getUserData(TerminalToolWindowTab.Companion.getKEY());
+
+        if (terminalTab != null) {
+            terminalTab.getView()
+                    .createSendTextBuilder()
+                    .shouldExecute()
+                    .send(text);
+
+            editor.getSelectionModel().removeSelection();
+            return;
+        }
+
+        TerminalWidget terminalWidget =
+                TerminalToolWindowManager.findWidgetByContent(content);
+
+        if (terminalWidget != null) {
+            terminalWidget.sendCommandToExecute(text);
+            editor.getSelectionModel().removeSelection();
+        }
     }
-
-
 }
