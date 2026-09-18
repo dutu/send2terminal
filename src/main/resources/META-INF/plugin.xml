@@ -5,7 +5,7 @@
     <vendor email="" url="https://github.com/holgerbrandl/send2terminal">Holger Brandl</vendor>
 
     <description><![CDATA[
-        IntelliJ plugin to send line or selection to a terminal
+        IntelliJ plugin to send the current line or selection to the IDE terminal.
     ]]></description>
 
     <change-notes><![CDATA[
@@ -17,45 +17,12 @@
     <depends>com.intellij.modules.lang</depends>
     <depends>org.jetbrains.plugins.terminal</depends>
 
-    <project-components>
-        <component>
-            <implementation-class>io.github.holgerbrandl.send2terminal.actions.CodeEvalActionRegistry</implementation-class>
-        </component>
-    </project-components>
-
-    <extensions defaultExtensionNs="com.intellij">
-        <projectConfigurable
-            instance="io.github.holgerbrandl.send2terminal.settings.S2TConfigurable"
-            id="send2terminal.settings"
-            displayName="Send Code To Terminal"/>
-
-        <applicationService
-                serviceImplementation="io.github.holgerbrandl.send2terminal.settings.S2TSettings"/>
-    </extensions>
-
     <actions>
-        <group class="io.github.holgerbrandl.send2terminal.actions.S2TActionGroup"
-               id="CodeSnippetActionMenu">
-
-            <separator/>
-
-            <action id="EvalSelection"
+        <action id="EvalSelection"
                 class="io.github.holgerbrandl.send2terminal.actions.EvaluateLineOrSelectionAction"
                 text="Evaluate Line/Selection in Terminal"
-                description="Evaluate the current line or selection in the terminal"/>
-
-            <action id="EvalExpression"
-                class="io.github.holgerbrandl.send2terminal.actions.EvaluateExpressionAction"
-                text="Evaluate Expression in Terminal"
-                description="Evaluate the current expression in the terminal"/>
-
-            <action id="ClearImportCache"
-                class="io.github.holgerbrandl.send2terminal.actions.ClearImportCache"
-                text="Clear Kotlin Import Cache"
-                description="Clears the import cache of the Send2Terminal plugin"/>
-
-            <separator/>
+                description="Evaluate the current line or selection in the terminal">
             <add-to-group group-id="EditorPopupMenu" anchor="last"/>
-        </group>
+        </action>
     </actions>
 </idea-plugin>
