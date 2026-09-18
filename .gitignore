@@ -58,3 +58,7 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
+# Generated Gradle / IntelliJ Platform files
+.gradle/
+.intellijPlatform/
+build/
