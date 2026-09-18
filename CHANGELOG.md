@@ -1,5 +1,12 @@
 # Changes
 
+## [2.0.1]
+
+### Changed
+
+* Renamed the plugin to **Send Code to Terminal**.
+* Renamed the main action to **Send Line/Selection to Terminal** for clearer terminology.
+
 ## [2.0.0]
 
 ### Changed

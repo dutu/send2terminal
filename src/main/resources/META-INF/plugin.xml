@@ -1,15 +1,17 @@
 <idea-plugin>
     <id>io.github.dutu.send2terminal</id>
-    <name>Send To Terminal</name>
-    <version>2.0.0</version>
+    <name>Send Code to Terminal</name>
+    <version>2.0.1</version>
     <vendor url="https://github.com/dutu/send2terminal">dutu</vendor>
 
     <description><![CDATA[
-        Send the current line or editor selection directly to the active IDE terminal.
+        <p>Send the current line or selected code directly to the active IDE terminal and execute it.</p>
+        <p>Works with single-line and multi-line selections while keeping focus in the editor.</p>
     ]]></description>
 
     <change-notes><![CDATA[
-        <p>Changes are documented in the project changelog.</p>
+        <li>Renamed the plugin to <b>Send Code to Terminal</b>.</li>
+        <li>Renamed the main action to <b>Send Line/Selection to Terminal</b>.</li>
     ]]></change-notes>
 
     <idea-version since-build="263"/>
@@ -20,8 +22,8 @@
     <actions>
         <action id="io.github.dutu.send2terminal.EvalSelection"
                 class="io.github.holgerbrandl.send2terminal.actions.EvaluateLineOrSelectionAction"
-                text="Evaluate Line/Selection in Terminal"
-                description="Evaluate the current line or selection in the terminal">
+                text="Send Line/Selection to Terminal"
+                description="Send the current line or selection to the terminal">
             <add-to-group group-id="EditorPopupMenu" anchor="last"/>
         </action>
     </actions>

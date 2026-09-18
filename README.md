@@ -1,4 +1,4 @@
-# Send To Terminal
+# Send Code to Terminal
 
 <!-- Plugin description -->
 JetBrains IDE plugin to send the current editor line or selection directly to the active IDE terminal and execute it.
@@ -10,7 +10,7 @@ This fork uses the native JetBrains Terminal API instead of platform-specific te
 
 The plugin provides one action:
 
-**Evaluate Line/Selection in Terminal**
+**Send Line/Selection to Terminal**
 
 - If text is selected, the selected text is sent to the active IDE terminal.
 - If there is no selection, the current line is sent.
@@ -22,7 +22,7 @@ No default keyboard shortcut is assigned.
 
 A convenient binding is `F10`:
 
-`Settings → Keymap → Evaluate Line/Selection in Terminal`
+`Settings → Keymap → Send Line/Selection to Terminal`
 
 ## Terminal support
 
@@ -36,11 +36,15 @@ This makes it suitable for Linux/Wayland environments as well as other platforms
 
 ## Compatibility
 
-Currently developed and tested with WebStorm based on IntelliJ Platform build `263`.
+Developed and tested with JetBrains IDEs based on IntelliJ Platform build `263`.
 
-The plugin requires the JetBrains Terminal plugin.
+Tested with:
 
-Other JetBrains IDEs based on the same platform may also work but have not been specifically tested.
+- WebStorm
+- IntelliJ IDEA
+- PyCharm
+
+The plugin requires the bundled JetBrains Terminal plugin.
 
 ## Build
 

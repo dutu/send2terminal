@@ -1,1 +1,1 @@
-rootProject.name = "Send2Terminal"
+rootProject.name = "SendCodeToTerminal"
