@@ -1,39 +1,31 @@
-<svg width="189" height="189" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-     overflow="hidden">
-    <defs>
-        <clipPath id="clip0">
-            <rect x="0" y="0" width="189" height="189"/>
-        </clipPath>
-        <clipPath id="clip1">
-            <rect x="7" y="49" width="171" height="171"/>
-        </clipPath>
-        <clipPath id="clip2">
-            <rect x="7" y="49" width="171" height="171"/>
-        </clipPath>
-        <clipPath id="clip3">
-            <rect x="7" y="49" width="171" height="171"/>
-        </clipPath>
-    </defs>
-    <g clip-path="url(#clip0)">
-        <rect x="0" y="0" width="189" height="189" fill="#FFFFFF"/>
-        <path d="M5 32.8339C5 16.3571 18.3571 3 34.834 3L154.166 3C170.643 3 184 16.3571 184 32.8339L184 155.166C184 171.643 170.643 185 154.166 185L34.834 185C18.3571 185 5 171.643 5 155.166Z"
-              stroke="#75BD01" stroke-width="4" stroke-miterlimit="8" fill-rule="evenodd"/>
-        <text fill="#75BD01" font-family="Calibri,Calibri_MSFontService,sans-serif" font-weight="700" font-size="72"
-              transform="translate(8.2915 67)">&gt;_
-        </text>
-        <g clip-path="url(#clip1)">
-            <g clip-path="url(#clip2)">
-                <g clip-path="url(#clip3)">
-                    <path d="M129.928 502.388 124.94 506.472 165.024 538.243 168.936 533.305ZM100.435 502.577 61.0707 534.414 65.0323 539.31 105.477 506.603ZM64.8413 470.144 61.421 474.371 115.235 517.891 168.749 475.474 165.371 471.214 115.269 510.927ZM65.3951 469.12C59.5218 469.12 54.6972 473.917 54.6972 479.784L54.6972 529.965C54.6972 535.833 59.5218 540.63 65.3951 540.63L164.615 540.63C170.488 540.63 175.312 535.833 175.312 529.965L175.312 479.784C175.312 473.917 170.488 469.12 164.615 469.12 131.542 469.12 98.4685 469.12 65.3951 469.12ZM65.3951 474.554C98.4685 474.554 131.542 474.554 164.615 474.554 167.584 474.554 169.875 476.848 169.875 479.784L169.875 529.965C169.875 532.901 167.584 535.191 164.615 535.191L65.3951 535.191C62.4262 535.191 60.132 532.901 60.132 529.965L60.132 479.784C60.132 476.848 62.4262 474.554 65.3951 474.554Z"
-                          fill="#75BD01" transform="matrix(1 0 0 1.00453 -6.55895 -372.137)"/>
-                    <path d="M24.1624 490.277 72.1638 490.277C73.9002 490.277 75.2982 491.492 75.2982 493.001L75.2982 493.774C75.2982 495.283 73.9002 496.498 72.1638 496.498L24.1624 496.498C22.426 496.498 21.028 495.283 21.028 493.774L21.028 493.001C21.028 491.492 22.426 490.277 24.1624 490.277Z"
-                          fill="#75BD01" transform="matrix(1 0 0 1.00453 -6.55895 -372.137)"/>
-                    <path d="M33.5364 501.082 81.5377 501.082C83.2741 501.082 84.6721 502.297 84.6721 503.806L84.6721 504.579C84.6721 506.088 83.2741 507.303 81.5377 507.303L33.5364 507.303C31.7999 507.303 30.4019 506.088 30.4019 504.579L30.4019 503.806C30.4019 502.297 31.7999 501.082 33.5364 501.082Z"
-                          fill="#75BD01" transform="matrix(1 0 0 1.00453 -6.55895 -372.137)"/>
-                    <path d="M20.051 511.396 68.0524 511.396C69.7889 511.396 71.1867 512.611 71.1867 514.12L71.1867 514.893C71.1867 516.402 69.7889 517.617 68.0524 517.617L20.051 517.617C18.3145 517.617 16.9166 516.402 16.9166 514.893L16.9166 514.12C16.9166 512.611 18.3145 511.396 20.051 511.396Z"
-                          fill="#75BD01" transform="matrix(1 0 0 1.00453 -6.55895 -372.137)"/>
-                </g>
-            </g>
-        </g>
-    </g>
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="2" y="2" width="36" height="36" rx="8"
+        fill="#0B0F14" stroke="#7CFF00" stroke-width="2"/>
+
+  <!-- Code symbol -->
+  <path d="M10 16L7 19L10 22"
+        stroke="#7CFF00" stroke-width="2.4"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M14 16L17 19L14 22"
+        stroke="#7CFF00" stroke-width="2.4"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M13 14L11 24"
+        stroke="#7CFF00" stroke-width="2.2"
+        stroke-linecap="round"/>
+
+  <!-- Send arrow -->
+  <path d="M19 19H26"
+        stroke="#7CFF00" stroke-width="2.4"
+        stroke-linecap="round"/>
+  <path d="M23.5 16.5L27 19L23.5 21.5"
+        stroke="#7CFF00" stroke-width="2.4"
+        stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Terminal prompt -->
+  <path d="M29 14L32 17L29 20"
+        stroke="#FFFFFF" stroke-width="2.2"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M29 24H34"
+        stroke="#FFFFFF" stroke-width="2.2"
+        stroke-linecap="round"/>
 </svg>

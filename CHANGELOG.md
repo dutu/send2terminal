@@ -1,5 +1,12 @@
 # Changes
 
+## [2.0.2]
+
+### Changed
+
+* Added a plugin icon for the IDE and JetBrains Marketplace.
+* Added a public plugin support contact address.
+
 ## [2.0.1]
 
 ### Changed
@@ -24,7 +31,7 @@
 * Removed legacy Windows and macOS external-terminal connectors.
 * Removed the legacy settings UI and configurable evaluation actions.
 * Removed Kotlin-specific import handling and expression evaluation.
- 
+
 ## [1.7.0]
 
 * Fixed compatibility with Intellij v2022.3
@@ -71,7 +78,6 @@
 ## [1.0.0]
 
 Initial Release.
- 
+
 This plugin was originally developed as part of [R language support for Intellij](https://github.com/holgerbrandl/r4intellij) but it now evolved separately.
-            
-            
+
